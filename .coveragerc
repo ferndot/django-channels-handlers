@@ -1,0 +1,12 @@
+[run]
+branch = True
+source = channels_handlers
+omit = tests/*
+
+[report]
+show_missing = True
+skip_covered = True
+omit = tests/*
+
+[html]
+directory = coverage_html
