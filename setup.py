@@ -25,8 +25,8 @@ setup(
     description="Django Channels, without the Pain 💊",
     long_description=read("README.rst"),
     packages=find_packages(exclude=("tests",)),
-    python_requires=">=3.5",
-    install_requires=["Django>=2.1", "channels~=2.2"],
+    python_requires=">=3.6",
+    install_requires=["Django>=2.1", "channels~=2.2", "pydantic~=0.32"],
     extras_require={
         "tests": [
             "pytest~=5.0",
@@ -45,7 +45,6 @@ setup(
         "Framework :: Django :: 2.2",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Intended Audience :: Developers",
