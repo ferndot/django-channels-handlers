@@ -1,13 +1,12 @@
-channels_handlers
-=================
+django-channels-handlers
+========================
 
 .. image:: https://img.shields.io/pypi/v/channels_handlers.svg
     :target: https://pypi.python.org/pypi/channels_handlers
     :alt: Latest PyPI version
 
-.. image:: https://travis-ci.org/joshua-s/django-channels-handlers.png
-   :target: https://travis-ci.org/joshua-s/django-channels-handlers
-   :alt: Latest Travis CI build status
+.. image:: https://travis-ci.com/joshua-s/django-channels-handlers.svg?branch=master
+    :target: https://travis-ci.com/joshua-s/django-channels-handlers
 
 Django Channels, without the Pain 💊
 
