@@ -66,7 +66,7 @@ Compatibility
 `django-channels-handlers` is compatible with Python 3.6+, Django 2.1+, and Django Channels 2.2+.
 
 
-Licence
+License
 -------
 
 `django-channels-handlers` is licensed under the MIT License.

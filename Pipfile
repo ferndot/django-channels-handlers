@@ -8,6 +8,9 @@ pre-commit = "*"
 black = "*"
 pytest = "*"
 pytest-cov = "*"
+setuptools = "*"
+wheel = "*"
+twine = "*"
 
 [packages]
 
