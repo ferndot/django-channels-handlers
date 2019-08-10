@@ -35,6 +35,10 @@ class MessageHandler:
         except KeyError:
             return message
 
+    def construct_message(self, message_type, data):
+        model_class = self.models.get(message_type)
+        return model_class(**data)
+
     def handle_message(self, message):
         """
         Handles the given message
@@ -53,6 +57,13 @@ class MessageHandler:
         # Fire handler actions
         return handler_function(message)
 
+    def receive_json(self, json):
+        # Execute any parent logic first
+        super().receive_json(json)
+
+        # Handle message
+        self.handle_message(json)
+
     def validate_message(self, message):
         try:
             return self._run_message_validation(message)
@@ -65,10 +76,6 @@ class MessageHandler:
                 },
                 close=4002,
             )
-
-    def construct_message(self, message_type, data):
-        model_class = self.models.get(message_type)
-        return model_class(**data)
 
     def serialize_message(self, message_type, data):
         return self.construct_message(message_type, data)
@@ -92,6 +99,13 @@ class AsyncMessageHandler(MessageHandler):
 
         # Fire handler actions
         return await handler_function(message)
+
+    async def receive_json(self, json):
+        # Execute any parent logic first
+        await super().receive_json(json)
+
+        # Handle message
+        await self.handle_message(json)
 
     async def validate_message(self, message):
         try:
