@@ -8,7 +8,11 @@ django-channels-handlers
 .. image:: https://travis-ci.com/joshua-s/django-channels-handlers.svg?branch=master
     :target: https://travis-ci.com/joshua-s/django-channels-handlers
 
-Django Channels, without the Pain 💊
+
+Django Channels consumers, without the Pain 💊
+
+`django-channels-handers` is an abstraction for Django Channels that makes it easy to
+implement elegant protocols without having to worry about the communication layer.
 
 
 Requirements
@@ -22,11 +26,34 @@ Requirements
 Usage
 -----
 
-Install django-channels-handlers from pypi::
+Install `django-channels-handlers` from pypi::
 
     pip install django-channels-handlers
 
-Create a message handler
+Create pydantic models for each message you intend to handle. This allows
+the handler to validate the message and parse it into an object.
+
+.. code:: python
+
+    from pydantic import BaseModel, UUID4
+    from typing import Dict, Optional
+    from datetime import datetime
+
+
+    class ChatMessage(BaseModel):
+        type: str = "chat.message"
+        id: UUID4
+        thread: UUID4
+        sender: UUID4
+        content: str
+        data: Optional[Dict] = {}
+        created: datetime
+
+Create a message handler.
+
+This will first validate and parse a message that matches `handled_types`
+using the corresponding entry in `models`. It will then execute the
+method specified in `handled_types`, passing the newly parsed message object.
 
 .. code:: python
 
@@ -40,14 +67,15 @@ Create a message handler
             "chat.message": "receive_message",
         }
         models = {
-            "chat.message": pydantic_models.Message,
+            "chat.message": ChatMessage,
         }
 
         def receive_message(self, message):
-            # Do something with the message
+            # Some logic with message, e.g. save to database
             pass
 
-Import ConsumerHandlerMixin and add it to your Django Channels consumer
+Import `ConsumerHandlerMixin` and add it to your Django Channels consumer.
+Then, add your custom handler to the consumer's `handler_classes`.
 
 .. code:: python
 
