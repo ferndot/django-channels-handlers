@@ -47,11 +47,12 @@ Create a message handler
             # Do something with the message
             pass
 
-Import ConsumerHandlerMixin (or AsyncConsumerHandlerMixin) and add it to your Django Channels consumer
+Import ConsumerHandlerMixin and add it to your Django Channels consumer
 
 .. code:: python
 
     from channels_handlers.consumers import ConsumerHandlerMixin
+    # For async, import AsyncConsumerHandlerMixin
     from channels.generic.websocket import JsonWebsocketConsumer
 
 

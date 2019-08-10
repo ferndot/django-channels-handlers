@@ -1,4 +1,4 @@
-import pydantic.ValidationError
+import pydantic
 
 
 class MessageHandler:
@@ -74,7 +74,7 @@ class MessageHandler:
         return self.construct_message(message_type, data)
 
 
-class AsyncMessageHander(MessageHandler):
+class AsyncMessageHandler(MessageHandler):
     async def handle_message(self, message):
         """
         Handles the given message
