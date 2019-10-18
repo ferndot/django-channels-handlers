@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from channels_handlers import __version__
 
 
-with open("README.rst", "r") as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
@@ -16,7 +16,7 @@ setup(
     license="MIT",
     description="Django Channels, without the Pain 💊",
     long_description=long_description,
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=("tests",)),
     python_requires=">=3.6",
     install_requires=["Django>=2.1", "channels~=2.2", "pydantic~=0.32"],
