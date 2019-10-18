@@ -77,9 +77,6 @@ class MessageHandler:
                 close=4002,
             )
 
-    def serialize_message(self, message_type, data):
-        return self.construct_message(message_type, data)
-
 
 class AsyncMessageHandler(MessageHandler):
     async def handle_message(self, message):
