@@ -19,7 +19,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=("tests",)),
     python_requires=">=3.6",
-    install_requires=["Django>=2.1", "channels~=2.2", "pydantic~=0.32"],
+    install_requires=["Django>=2.1", "channels>=2.2", "pydantic~=1.4"],
     include_package_data=True,
     extras_require={
         "tests": [
@@ -37,10 +37,12 @@ setup(
         "Framework :: Django",
         "Framework :: Django :: 2.1",
         "Framework :: Django :: 2.2",
+        "Framework :: Django :: 3.0",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Intended Audience :: Developers",
     ],
 )

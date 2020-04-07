@@ -13,8 +13,8 @@ without having to worry about the communication layer.
 ## Requirements
 
 - Django>=2.1
-- channels>=2.2
-- pydantic>=0.32
+- channels~=2.4
+- pydantic~=1.4
 
 ## Usage
 
