@@ -20,11 +20,20 @@ class MessageHandler:
 
         # Get handler function name
         try:
+            # Check if a custom handler is defined
             func_name = self.handled_types[message["type"]]
 
         except KeyError:
-            # Silently exit if the handler does not recognize the message type
-            return
+            message_namespace, message_function = message.type.split(".")
+            if message_namespace == self.namespace and callable(
+                getattr(self, message_function, None)
+            ):
+                # We can automatically determine the name
+                func_name = message_function
+
+            else:
+                # Silently exit if the handler does not recognize the message type
+                return
 
         return getattr(self, func_name)
 

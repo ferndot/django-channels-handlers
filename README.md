@@ -13,8 +13,8 @@ without having to worry about the communication layer.
 ## Requirements
 
 - Django>=2.1
-- channels>=2.2
-- pydantic>=0.32
+- channels~=2.4
+- pydantic~=1.4
 
 ## Usage
 
@@ -58,14 +58,11 @@ from channels_handlers.handlers import MessageHandler
 
 class ChatHandler(MessageHandler):
     namespace = "chat"
-    handled_types = {
-        "chat.message": "receive_message",
-    }
     models = {
         "chat.message": ChatMessage,
     }
 
-    def receive_message(self, message):
+    def message(self, message):
         # Some logic with message, e.g. save to database
         pass
 ```
