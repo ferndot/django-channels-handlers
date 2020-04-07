@@ -5,11 +5,17 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
-install: pip install tox-travis
-script: tox
-deploy:
-  provider: pypi
-  username: $PYPI_USER
-  password: $PYPI_PASSWORD
-  on:
-    tags: true
+
+jobs:
+  include:
+    - stage: test
+      install: pip install tox-travis
+      script: tox
+    - stage: deploy
+      script: skip
+      deploy:
+        provider: pypi
+        username: $PYPI_USER
+        password: $PYPI_PASSWORD
+        on:
+          tags: true
