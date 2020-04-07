@@ -84,7 +84,7 @@ class MyConsumer(ConsumerHandlerMixin, JsonWebsocketConsumer):
 ## Compatibility
 
 django-channels-handlers is compatible
-with Python 3.6+, Django 2.1+, and Django Channels 2.2+.
+with Python 3.7+, Django 2.2+, and Django Channels 2.2+.
 
 ## License
 
