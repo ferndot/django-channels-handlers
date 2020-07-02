@@ -2,7 +2,7 @@
 
 [![Latest PyPI
 version](https://img.shields.io/pypi/v/django-channels-handlers.svg)](https://pypi.python.org/pypi/django-channels-handlers)
-[![image](https://travis-ci.com/joshua-s/django-channels-handlers.svg?branch=master)](https://travis-ci.com/joshua-s/django-channels-handlers)
+[![image](https://travis-ci.com/joshua-s/django-channels-handlers.svg?branch=trunk)](https://travis-ci.com/joshua-s/django-channels-handlers)
 
 Django Channels consumers, without the Pain 💊
 
