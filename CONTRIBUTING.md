@@ -113,9 +113,8 @@ poetry version patch # possible: major / minor / patch
 After doing this, commit your changes. Then run
 the following:
 ```
-git tag -a <version: vX.X.X> -m "Version X.X.X"
-git push
-git push --tags
+git tag -a <version: vX.X.X>
+git push --follow-tags
 ```
 
 Travis will then deploy to PyPI if tests pass.

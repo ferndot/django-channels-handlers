@@ -2,20 +2,29 @@ os: linux
 dist: xenial
 language: python
 
+stages:
+  - Test
+  - Publish
+
+install: pip install poetry tox-travis codecov
+
 jobs:
   include:
-    - stage: test
+    - stage: Test
       python: "3.7"
-      install: pip install tox-travis
       script: tox
     - python: "3.8"
-      install: pip install tox-travis
       script: tox
-    - stage: deploy
+
+    - stage: Publish
       script: skip
+      before_deploy:
+        - poetry config http-basic.pypi $PYPI_USER $PYPI_PASSWORD
+        - poetry build -f sdist
       deploy:
-        provider: pypi
-        username: $PYPI_USER
-        password: $PYPI_PASSWORD
+        provider: script
+        script: poetry publish
+        skip_cleanup: true
         on:
           tags: true
+      if: tag IS present
