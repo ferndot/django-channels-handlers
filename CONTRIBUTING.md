@@ -54,14 +54,13 @@ development.
 
 2. Clone your fork locally:
 ```bash
-git clone git@github.com:joshua-s/django-channels-handlers.git
+git clone git@github.com:<your username>/django-channels-handlers.git
 ```
 
 3. Install development dependencies and initialize pre-commit
 ```bash
-export PIPENV_VENV_IN_PROJECT=1
-pipenv install --dev
-pipenv run pre-commit install
+poetry install
+poetry run pre-commit install
 ```
 
 4. Create a branch for local development:
@@ -71,7 +70,7 @@ git checkout -b name-of-your-bugfix-or-feature
     
 5. Now you can make your changes locally. When you're done making changes, check that the tests are still passing:
 ```bash
-pipenv run pytest
+poetry run pytest
 ```
 
 6. Commit your changes and push your branch to GitHub:
@@ -107,7 +106,7 @@ pytest channels_handlers
 A reminder for the maintainers on how to deploy. Make sure all your
 changes are committed (including an entry in HISTORY.rst). Then run:
 ```bash
-bumpversion patch # possible: major / minor / patch
+bump2version patch # possible: major / minor / patch
 git push
 git push --tags
 ```
