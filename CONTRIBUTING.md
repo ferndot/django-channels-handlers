@@ -103,10 +103,17 @@ pytest channels_handlers
 
 ## Deploying
 
-A reminder for the maintainers on how to deploy. Make sure all your
-changes are committed (including an entry in HISTORY.rst). Then run:
+A reminder for the maintainers on how to deploy.
+
+Make sure to add an entry to HISTORY.md. Then run:
 ```bash
-bump2version patch # possible: major / minor / patch
+poetry version patch # possible: major / minor / patch
+```
+
+After doing this, commit your changes. Then run
+the following:
+```
+git tag -a <version: vX.X.X> -m "Version X.X.X"
 git push
 git push --tags
 ```
