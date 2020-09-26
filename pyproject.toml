@@ -19,3 +19,36 @@ exclude = '''
   | tests/data
 )/
 '''
+
+[tool.poetry]
+name = "django-channels-handlers"
+version = "0.2.2"
+description = "Django Channels, without the Pain"
+license = "MIT"
+authors = ["Josh Smith <josh@joshsmith.codes>"]
+readme = "README.md"
+repository = "https://github.com/joshua-s/django-channels-handlers"
+classifiers = [
+      "Development Status :: 3 - Alpha",
+      "Framework :: Django",
+      "Framework :: Django :: 2.2",
+      "Framework :: Django :: 3.0",
+      "Intended Audience :: Developers",
+  ]
+packages = [
+    { include = "channels_handlers" },
+  ]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.7.1"
+black = "^20.8b1"
+pytest = "^6.0.2"
+pytest-cov = "^2.10.1"
+tox = "^3.20.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
